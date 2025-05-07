@@ -1,3 +1,4 @@
+import {Analytics} from "@vercel/analytics/react";
 import About from "./components/About";
 import BlurBackground from "./components/BlurBackground";
 import Contacts from "./components/Contacts";
@@ -19,6 +20,7 @@ function App() {
         <Skills />
         <Contacts />
       </main>
+      <Analytics />
     </>
   );
 }

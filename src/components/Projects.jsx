@@ -27,7 +27,6 @@ function Projects() {
                   href={project.github_link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  //   make box shadow inset blue
                   className=" bg-gray-800 hover:bg-gray-900 transition-colors duration-200
                   text-white font-semibold px-4 py-2 rounded-full mr-2">
                   Git Hub
@@ -36,7 +35,6 @@ function Projects() {
                   href={project.live_link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  //   make box shadow inset blue
                   className=" mt-4 bg-gray-800 hover:bg-gray-900
                     transition-colors duration-200 text-white font-semibold px-4 py-2 rounded-full">
                   Live Demo
