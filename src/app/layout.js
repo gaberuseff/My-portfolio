@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/next';
 import { Ubuntu } from "next/font/google";
 import "./globals.css";
 import { URL } from "url";
@@ -59,6 +60,8 @@ export default function RootLayout({ children, params: { lang } }) {
         </main>
 
         <Footer />
+
+        <Analytics />
       </body>
     </html>
   );
