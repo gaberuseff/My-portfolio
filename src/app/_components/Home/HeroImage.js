@@ -9,6 +9,7 @@ function HeroImage() {
                 alt="Gaber Usef"
                 fill
                 priority
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
             />
         </div>
