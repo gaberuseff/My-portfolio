@@ -1,0 +1,24 @@
+import { Suspense } from "react";
+import ProjectsList from "../_components/projects/ProjectsList";
+import Spinner from "../_components/Spinner";
+
+export const metadata = {
+    title: "Gaber Usef | Projects",
+    description: "A list of projects created by Gaber Usef",
+};
+
+async function page() {
+    return (
+        <div className="py-12">
+            <h1 className="text-3xl font-bold mb-4">
+                My Projects: Showcasing Web Development
+            </h1>
+
+            <Suspense fallback={<Spinner />}>
+                <ProjectsList />
+            </Suspense>
+        </div>
+    )
+}
+
+export default page

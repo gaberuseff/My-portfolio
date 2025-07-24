@@ -1,26 +1,105 @@
 @import "tailwindcss";
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  h2 {
+    @apply sm:text-4xl md:text-6xl text-4xl font-bold mb-4;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  .heading-small {
+    @apply text-sm md:text-base font-semibold mb-2;
+  }
+
+  .p-small {
+    @apply text-xs md:text-sm text-gray-500;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+    rounded-full bg-gray-900 sm:px-6 px-4 py-3 
+          font-semibold text-white sm:text-lg text-xs
+          transition-all duration-300 ease-in-out
+          hover:bg-gray-800 hover:shadow-lg hover:scale-105
+          focus:outline-none focus:ring-2 focus:ring-gray-100 focus:ring-offset-2
+          disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2
+    rounded-full bg-gray-100 sm:px-6 px-4 py-3 
+          font-semibold text-gray-800 sm:text-lg text-xs
+          transition-all duration-300 ease-in-out
+          hover:bg-gray-200 hover:shadow-lg hover:scale-105
+          focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-offset-2
+          disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer;
+  }
+
+  ::selection {
+    background-color: #00000020;
+    color: #000;
+  }
+
+  .loader {
+    width: 20px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #000;
+    box-shadow: 0 0 0 0 #0004;
+    animation: l2 1.5s infinite linear;
+    position: relative;
+  }
+  /* center the loader */
+  .loader:before,
+  .loader:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    box-shadow: inherit;
+
+    aspect-ratio: 1;
+    border-radius: inherit;
+    box-shadow: 0 0 0 0 #0004;
+    animation: inherit;
+    animation-delay: -0.5s;
+  }
+  .loader:after {
+    animation-delay: -1s;
+  }
+  @keyframes l2 {
+    100% {
+      box-shadow: 0 0 0 40px #0000;
+    }
+  }
+
+  .spinner {
+    width: 50px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 8px solid #0000;
+    border-right-color: #000000c0;
+    position: relative;
+    animation: l24 1s infinite linear;
+  }
+  .spinner:before,
+  .spinner:after {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: inherit;
+    animation: inherit;
+    animation-duration: 2s;
+  }
+  .spinner:after {
+    animation-duration: 4s;
+  }
+  @keyframes l24 {
+    100% {
+      transform: rotate(1turn);
+    }
+  }
 }
