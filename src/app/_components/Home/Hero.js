@@ -10,7 +10,7 @@ function Hero() {
                 <div className="relative w-full aspect-square md:h-full 
             md:aspect-auto order-1 md:order-2 overflow-hidden rounded-[10%]">
                     <Image
-                        src="/whyme.png"
+                        src="/me.png"
                         alt="Gaber Usef"
                         fill
                         priority
