@@ -11,7 +11,7 @@ async function page() {
     return (
         <div className="py-12">
             <h1 className="text-3xl font-bold mb-4">
-                My Projects: Showcasing Web Development
+                All Projects
             </h1>
 
             <Suspense fallback={<Spinner />}>

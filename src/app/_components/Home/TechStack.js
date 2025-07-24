@@ -3,6 +3,7 @@ function TechStack() {
         "JavaScript (ES6+)",
         "React",
         "Redux Toolkit",
+        "React Query",
         "Next.js",
         "Tailwind CSS",
         "Styled Components",
@@ -14,7 +15,7 @@ function TechStack() {
     return (
         <section className="py-12">
             <div className="flex flex-col md:flex-row md:justify-between md:items-center">
-                <h2>My Tech Stack</h2>
+                <h2>Tech Stack</h2>
                 <p className="p-small">
                     The tools and technologies I use to build modern web experiences.
                 </p>

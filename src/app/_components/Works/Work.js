@@ -6,7 +6,7 @@ async function Work({ work }) {
 
     return (
         <Link href={`/projects/${id}`} className="group relative flex flex-col items-start justify-between 
-            p-4 transition-shadow duration-300 ease-in-out md:border-b border-gray-300 overflow-hidden">
+            py-4 transition-shadow duration-300 ease-in-out md:border-b border-gray-300 overflow-hidden">
             <div className="relative w-full md:aspect-video aspect-3/2 mb-4
                 sm:rounded-4xl rounded-2xl">
                 <Image

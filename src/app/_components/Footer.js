@@ -17,7 +17,11 @@ function Footer() {
             <div className="pt-8">
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-8  md:text-left">
                     <div className="space-y-4 col-span-2 md:col-span-1">
-                        <h2 className="text-2xl font-bold text-gray-800">Gaber Usef</h2>
+                        <Link href="/" className="flex items-center">
+                            <div className="w-4 h-4 bg-gray-900 rounded-full"></div>
+                            <span className="ml-2 sm:text-xl text-lg font-semibold">Gaber Usef</span>
+                        </Link>
+
                         <p className="p-small">
                             A passionate Front-End Developer dedicated to building modern and user-friendly web applications.
                         </p>
@@ -61,7 +65,7 @@ function Footer() {
                 <div className="absolute top-1/3 left-2/5 -translate-x-1/2 
                     -translate-y-1/2 w-full h-full flex items-center justify-center z-10">
                     <h2 className="leading-tight flex items-center justify-center gap-2">
-                        <span className="block sm:text-3xl text-lg">A Front-End </span>
+                        <span className="block sm:text-3xl text-lg">Front-End </span>
                         <span className="block sm:text-3xl text-lg  italic font-serif">Web</span>
                         <span className="block sm:text-3xl text-lg  font-black tracking-tight">Developer</span>
                     </h2>
