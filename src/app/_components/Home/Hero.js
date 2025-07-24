@@ -1,7 +1,6 @@
 import Image from "next/image"
 import ButtonLink from "../ButtonLink"
 import Features from "./Features"
-import HeroImage from "./HeroImage"
 import HeroText from "./HeroText"
 
 function Hero() {
@@ -11,7 +10,7 @@ function Hero() {
                 <div className="relative w-full aspect-square md:h-full 
             md:aspect-auto order-1 md:order-2 overflow-hidden rounded-[10%]">
                     <Image
-                        src="/me.png"
+                        src="/whyme.png"
                         alt="Gaber Usef"
                         fill
                         priority
