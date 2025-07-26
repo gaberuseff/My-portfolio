@@ -2,10 +2,13 @@ import { Suspense } from "react";
 import ProjectsList from "../_components/projects/ProjectsList";
 import Spinner from "../_components/Spinner";
 
+export const revalidate = 0;
+
 export const metadata = {
     title: "Gaber Usef | Projects",
     description: "A list of projects created by Gaber Usef",
 };
+
 
 async function page() {
     return (
