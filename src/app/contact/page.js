@@ -1,4 +1,5 @@
 import { MoveUpRight, Github, Linkedin, Facebook, Instagram } from "lucide-react";
+import ButtonLink from "../_components/ButtonLink";
 
 function ContactPage() {
     const socialLinks = [
@@ -9,8 +10,10 @@ function ContactPage() {
         { href: "https://wa.me/+201098922786", label: "WhatsApp" },
     ];
 
+    const cvLink = 'https://drive.google.com/file/d/1_1RsecW4QaYZ_W4rjSd9lXY9ziSYxddF/view?usp=sharing';
+
     return (
-        <section className="py-12">
+        <section className="pt-12">
             <div>
                 <h1 className="text-3xl font-bold mb-4">Get in Touch</h1>
                 <p className="p-small max-w-5xl">
@@ -20,7 +23,7 @@ function ContactPage() {
                 </p>
             </div>
 
-            <div>
+            <div className="flex items-center gap-4">
                 <a href="mailto:dev.gaber@gmail.com" rel="noopener noreferrer"
                     className="text-gray-600 flex items-center gap-2 mt-4 sm:text-2xl text-xl">
                     <span>
@@ -29,7 +32,7 @@ function ContactPage() {
                     <MoveUpRight /></a>
             </div>
 
-            <div className="pt-12  border-t border-gray-200">
+            <div className="mt-8">
                 <h2 className="text-2xl font-semibold mb-6">Follow Me</h2>
                 <div className="flex items-center flex-wrap gap-6">
                     {socialLinks.map((link, index) => (
@@ -44,6 +47,10 @@ function ContactPage() {
                         </a>
                     ))}
                 </div>
+            </div>
+
+            <div className="mt-12">
+                <ButtonLink href={cvLink} target="_blank" className='btn-primary'>Show CV</ButtonLink>
             </div>
         </section >
     );
