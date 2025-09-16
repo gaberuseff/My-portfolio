@@ -13,7 +13,7 @@ function Footer() {
     ];
 
     return (
-        <footer className=" mt-12 border-t border-gray-300">
+        <footer className=" mt-12 border-t border-gray-300 max-w-7xl mx-auto px-4 sm:px-6">
             <div className="pt-8">
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-8  md:text-left">
                     <div className="space-y-4 col-span-2 md:col-span-1">

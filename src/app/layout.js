@@ -51,11 +51,11 @@ export default function RootLayout({ children, params: { lang } }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></meta>
       </head>
 
-      <body className={`${ubuntu.className} max-w-7xl mx-auto px-4 
+      <body className={`${ubuntu.className}
         bg-[#ccc4be7f] text-gray-800 min-h-screen`}>
         <Header />
 
-        <main>
+        <main className='max-w-7xl mx-auto px-4 sm:px-6'>
           {children}
         </main>
 

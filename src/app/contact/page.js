@@ -1,7 +1,8 @@
 import { MoveUpRight, Github, Linkedin, Facebook, Instagram } from "lucide-react";
 import ButtonLink from "../_components/ButtonLink";
+import { getCv } from "../_services/data-service";
 
-function ContactPage() {
+async function ContactPage() {
     const socialLinks = [
         { href: "https://github.com/Gaberuseff", label: "GitHub" },
         { href: "https://www.linkedin.com/in/gaberuseff/", label: "LinkedIn" },
@@ -10,7 +11,7 @@ function ContactPage() {
         { href: "https://wa.me/+201098922786", label: "WhatsApp" },
     ];
 
-    const cvLink = 'https://drive.google.com/file/d/1_1RsecW4QaYZ_W4rjSd9lXY9ziSYxddF/view?usp=sharing';
+    const cvLink = await getCv();
 
     return (
         <section className="pt-12">

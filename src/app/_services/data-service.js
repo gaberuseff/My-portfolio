@@ -43,3 +43,18 @@ export async function getWorkById(id) {
 
     return data;
 }
+
+export async function getCv() {
+    const { data, error } = await supabase
+        .from('MyCv')
+        .select('myCv')
+        .eq('id', 1)
+        .single()
+
+    if (error) {
+        console.error('Error fetching cv:', error)
+        throw new Error('Failed to fetch cv')
+    }
+
+    return data.myCv;
+}
