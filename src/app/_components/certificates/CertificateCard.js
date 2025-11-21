@@ -36,6 +36,7 @@ function CertificateCard({ cert }) {
         <Image
           src={image}
           alt={title}
+          quality={70}
           fill
           className="object-contain scale-[1.06] rotate-1 transition-transform duration-500 ease-out group-hover:scale-[1.08] group-hover:rotate-2"
           sizes="(max-width: 1280px) 100vw, 1280px"
