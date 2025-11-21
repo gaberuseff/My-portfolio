@@ -1,5 +1,5 @@
-import { unstable_noStore as noStore } from "next/cache";
 import { getWorks } from "@/app/_services/data-service";
+import { unstable_noStore as noStore } from "next/cache";
 import Work from "../Works/Work";
 
 async function ProjectsList() {

@@ -1,6 +1,6 @@
 import ButtonLink from "@/app/_components/ButtonLink";
 import { getWorkById, getWorks } from "@/app/_services/data-service";
-import RadioButtonFillIcon from "remixicon-react/RadioButtonFillIcon";
+import BulletIcon from "@/app/_components/BulletIcon";
 import Image from "next/image";
 import TechStack from "@/app/_components/Works/TechStack";
 
@@ -35,56 +35,70 @@ async function Page({ params }) {
             : [];
 
     return (
-        <section className="py-12 sm:py-16 flex flex-col gap-4" aria-labelledby="project-title">
-            <h2 id="project-title">{name}</h2>
-
-            <div className="relative w-full aspect-video mb-4 overflow-hidden sm:rounded-4xl rounded-2xl">
-                <Image
-                    src={image}
-                    alt={name || "Project image"}
-                    fill
-                    sizes="100vw"
-                    className="object-fill"
-                    placeholder="blur"
-                    blurDataURL={image}
-                />
+        <section className="py-12 sm:py-16" aria-labelledby="project-title">
+            <div className="flex flex-col gap-2 mb-6">
+                <h2 id="project-title" className="mb-1">{name}</h2>
+                {descriptionPoints[0] && (
+                    <p className="p-small text-gray-600">{descriptionPoints[0]}</p>
+                )}
             </div>
 
-            <div className="max-w-3xl text-gray-700">
-                <ul className="space-y-4">
-                    {descriptionPoints.map((point, index) => (
-                        <li key={index} className="flex items-center gap-2">
-                            <RadioButtonFillIcon className="text-gray-600 mt-1 h-6 w-6" />
-                            <span className="text-gray-600 sm:text-sm text-xs">{point.trim()}</span>
-                        </li>
-                    ))}
-                </ul>
-
-                <div className="mt-4 flex gap-2">
-                    <ButtonLink
-                        href={liveLink}
-                        target="_blank"
-                        className="btn-secondary"
-                        rel="noopener noreferrer"
-                        aria-label={`Open ${name} live demo (opens in a new tab)`}
-                    >
-                        Live Demo
-                    </ButtonLink>
-
-                    {repoLink && (
-                        <ButtonLink
-                            href={repoLink}
-                            target="_blank"
-                            className="btn-primary"
-                            rel="noopener noreferrer"
-                            aria-label={`View ${name} on GitHub (opens in a new tab)`}
-                        >
-                            View on GitHub
-                        </ButtonLink>
-                    )}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <div className="lg:col-span-7">
+                    <div className="relative w-full aspect-video overflow-hidden 
+                        sm:rounded-4xl rounded-2xl ring-1 ring-gray-300/60">
+                        <Image
+                            src={image}
+                            alt={name || "Project image"}
+                            fill
+                            sizes="100vw"
+                            className="object-cover"
+                            placeholder="blur"
+                            blurDataURL={image}
+                        />
+                    </div>
                 </div>
 
-                <TechStack techStack={techStack ?? []} />
+                <div className="lg:col-span-5">
+                    <div className="bg-gray-100/70 sm:rounded-4xl rounded-2xl p-6 ring-1 ring-gray-300/60">
+                        <ul className="space-y-4">
+                            {descriptionPoints.map((point, index) => (
+                                <li key={index} className="flex items-start gap-3">
+                                    <BulletIcon variant="dot" />
+                                    <span className="text-gray-700 sm:text-base text-sm leading-relaxed">{point.trim()}</span>
+                                </li>
+                            ))}
+                        </ul>
+
+                        <div className="mt-6 flex flex-wrap gap-3">
+                            <ButtonLink
+                                href={liveLink}
+                                target="_blank"
+                                className="btn-secondary"
+                                rel="noopener noreferrer"
+                                aria-label={`Open ${name} live demo (opens in a new tab)`}
+                            >
+                                Live Demo
+                            </ButtonLink>
+
+                            {repoLink && (
+                                <ButtonLink
+                                    href={repoLink}
+                                    target="_blank"
+                                    className="btn-primary"
+                                    rel="noopener noreferrer"
+                                    aria-label={`View ${name} on GitHub (opens in a new tab)`}
+                                >
+                                    View on GitHub
+                                </ButtonLink>
+                            )}
+                        </div>
+                    </div>
+
+                    <div className="mt-8">
+                        <TechStack techStack={techStack ?? []} />
+                    </div>
+                </div>
             </div>
         </section>
     )

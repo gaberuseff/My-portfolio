@@ -39,8 +39,6 @@ export async function getWorkById(id) {
         throw new Error(`Failed to fetch project with id ${id}`)
     }
 
-    console.log(data);
-
     return data;
 }
 
