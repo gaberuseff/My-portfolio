@@ -10,8 +10,6 @@ export async function getWorks() {
         throw new Error('Failed to fetch projects')
     }
 
-    console.log(data);
-
     return data;
 }
 
@@ -40,6 +38,8 @@ export async function getWorkById(id) {
         console.error(`Error fetching project with id ${id}:`, error)
         throw new Error(`Failed to fetch project with id ${id}`)
     }
+
+    console.log(data);
 
     return data;
 }

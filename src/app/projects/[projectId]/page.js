@@ -1,6 +1,6 @@
 import ButtonLink from "@/app/_components/ButtonLink";
 import { getWorkById, getWorks } from "@/app/_services/data-service";
-import { Dot } from "lucide-react";
+import RadioButtonFillIcon from "remixicon-react/RadioButtonFillIcon";
 import Image from "next/image";
 import TechStack from "@/app/_components/Works/TechStack";
 
@@ -12,10 +12,10 @@ export async function generateStaticParams() {
 }
 
 async function Page({ params }) {
-    const { projectId } = params;
+    const { projectId } = await params;
     const project = await getWorkById(projectId);
 
-    if (!project) return <div>Project not found.</div>;
+    if (!project) return <div className="text-center text-2xl text-red-600">Project not found</div>;
 
     const {
         name = "",
@@ -54,7 +54,7 @@ async function Page({ params }) {
                 <ul className="space-y-4">
                     {descriptionPoints.map((point, index) => (
                         <li key={index} className="flex items-center gap-2">
-                            <Dot className="text-gray-600 mt-1 h-6 w-6" />
+                            <RadioButtonFillIcon className="text-gray-600 mt-1 h-6 w-6" />
                             <span className="text-gray-600 sm:text-sm text-xs">{point.trim()}</span>
                         </li>
                     ))}

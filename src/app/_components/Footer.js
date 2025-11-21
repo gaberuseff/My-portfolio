@@ -1,4 +1,6 @@
+"use client"
 import Link from "./Link";
+import { motion } from "framer-motion";
 
 function Footer() {
     const navLinks = [
@@ -62,18 +64,29 @@ function Footer() {
             </div>
 
             <div className="relative text-center py-4 w-full overflow-hidden text-slate-700/20">
-                <div className="absolute top-1/3 left-2/5 -translate-x-1/2 
-                    -translate-y-1/2 w-full h-full flex items-center justify-center z-10">
+                <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="absolute top-1/3 left-2/5 -translate-x-1/2 -translate-y-1/2 w-full h-full flex items-center justify-center z-10"
+                >
                     <h2 className="leading-tight flex items-center justify-center gap-2">
                         <span className="block sm:text-3xl text-lg">Front-End </span>
                         <span className="block sm:text-3xl text-lg  italic font-serif">Web</span>
                         <span className="block sm:text-3xl text-lg  font-black tracking-tight">Developer</span>
                     </h2>
-                </div>
+                </motion.div>
 
-                <p className="lg:text-[300px] md:text-[200px] sm:text-[150px] text-[100px] font-bold">
+                <motion.p
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    className="lg:text-[300px] md:text-[200px] sm:text-[150px] text-[100px] font-bold"
+                >
                     Iconic
-                </p>
+                </motion.p>
             </div>
         </footer>
     );

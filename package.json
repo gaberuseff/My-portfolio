@@ -11,16 +11,18 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.52.1",
     "@vercel/analytics": "^1.5.0",
-    "lucide-react": "^0.525.0",
-    "next": "15.4.3",
-    "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "framer-motion": "^12.23.24",
+    "next": "^16.0.3",
+    "react": "^19.2.0-canary-0bdb9206-20250818",
+    "react-dom": "^19.2.0-canary-0bdb9206-20250818",
+    "react-loading-skeleton": "^3.5.0",
+    "remixicon-react": "^1.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
     "eslint": "^9",
-    "eslint-config-next": "15.4.3",
+    "eslint-config-next": "^16.0.3",
     "tailwindcss": "^4"
   }
 }

@@ -1,4 +1,9 @@
-import { MoveUpRight, Github, Linkedin, Facebook, Instagram } from "lucide-react";
+import ArrowRightUpLineIcon from "remixicon-react/ArrowRightUpLineIcon";
+import GithubFillIcon from "remixicon-react/GithubFillIcon";
+import LinkedinFillIcon from "remixicon-react/LinkedinFillIcon";
+import FacebookFillIcon from "remixicon-react/FacebookFillIcon";
+import InstagramLineIcon from "remixicon-react/InstagramLineIcon";
+import WhatsappFillIcon from "remixicon-react/WhatsappFillIcon";
 import ButtonLink from "../_components/ButtonLink";
 import { getCv } from "../_services/data-service";
 
@@ -30,7 +35,8 @@ async function ContactPage() {
                     <span>
                         dev.gaber@gmail.com
                     </span>
-                    <MoveUpRight /></a>
+                    <ArrowRightUpLineIcon />
+                </a>
             </div>
 
             <div className="mt-8">
@@ -38,12 +44,12 @@ async function ContactPage() {
                 <div className="flex items-center flex-wrap gap-6">
                     {socialLinks.map((link, index) => (
                         <a key={index} href={link.href} target="_blank" rel="noopener noreferrer"
-                            className="text-gray-600 flex items-center gap-2 hover:text-blue-500 transition-colors">
-                            {link.label === "GitHub" && <Github className="w-6 h-6" />}
-                            {link.label === "LinkedIn" && <Linkedin className="w-6 h-6" />}
-                            {link.label === "Facebook" && <Facebook className="w-6 h-6" />}
-                            {link.label === "Instagram" && <Instagram className="w-6 h-6" />}
-                            {link.label === "WhatsApp" && <img src="/whatsapp.svg" alt="WhatsApp" className="w-6 h-6" />}
+                            className="text-gray-600 flex items-center gap-2 hover:text-[#14130d] transition-colors">
+                            {link.label === "GitHub" && <GithubFillIcon className="w-6 h-6" />}
+                            {link.label === "LinkedIn" && <LinkedinFillIcon className="w-6 h-6" />}
+                            {link.label === "Facebook" && <FacebookFillIcon className="w-6 h-6" />}
+                            {link.label === "Instagram" && <InstagramLineIcon className="w-6 h-6" />}
+                            {link.label === "WhatsApp" && <WhatsappFillIcon className="w-6 h-6" />}
                             <span>{link.label}</span>
                         </a>
                     ))}

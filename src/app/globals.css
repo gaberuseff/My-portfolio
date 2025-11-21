@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @tailwind utilities;
 
+:root {
+  --bg-color: #ccc4be7f;
+}
+
 @layer utilities {
   h2 {
     @apply sm:text-4xl md:text-6xl text-4xl font-bold mb-4;
@@ -48,7 +52,7 @@
     animation: l2 1.5s infinite linear;
     position: relative;
   }
-  /* center the loader */
+
   .loader:before,
   .loader:after {
     content: "";

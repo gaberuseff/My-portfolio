@@ -1,9 +1,11 @@
 'use client';
 
 import Link from "@/app/_components/Link";
-import { AlignRight, X } from "lucide-react";
+import MenuLineIcon from "remixicon-react/MenuLineIcon";
+import CloseLineIcon from "remixicon-react/CloseLineIcon";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function Navigation() {
     const [open, setOpen] = useState(false);
@@ -22,25 +24,12 @@ export default function Navigation() {
                 onClick={() => setOpen(!open)}
                 className="block md:hidden"
                 aria-label={open ? "Close navigation menu" : "Open navigation menu"}>
-                <AlignRight />
+                <MenuLineIcon />
             </button>
 
-            <ul className={`
-                md:flex md:items-center md:gap-10 md:text-lg 
-                ${open
-                    ? "fixed inset-0 z-50 flex flex-col justify-center h-screen items-center text-xl gap-8 bg-gray-100 text-gray-800 p-8"
-                    : "hidden"
-                } 
-            `}>
-                <button className="md:hidden absolute top-6 right-4"
-                    onClick={() => setOpen(false)}
-                    aria-label="Close navigation menu">
-                    <X />
-                </button>
-
+            <ul className="md:flex md:items-center md:gap-10 md:text-lg hidden">
                 {links.map((link) => (
                     <Link key={link.href} href={link.href}
-                        onClick={() => setOpen(false)}
                         className={`hover:text-gray-400 dark:hover:text-gray-600 transition-colors
                             ${link.href === '/contact' ? 'bg-gray-800 text-gray-100 px-4 py-1 rounded-full' : ''}
                             ${active(link.href) ? 'text-gray-400 dark:text-gray-600' : ''}`}>
@@ -48,6 +37,41 @@ export default function Navigation() {
                     </Link>
                 ))}
             </ul>
+
+            <AnimatePresence>
+                {open && (
+                    <motion.ul
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-50 flex flex-col justify-center h-screen items-center text-xl gap-8 bg-gray-100 text-gray-800 p-8 md:hidden"
+                    >
+                        <motion.button
+                            whileTap={{ scale: 0.95 }}
+                            className="absolute top-6 right-4"
+                            onClick={() => setOpen(false)}
+                            aria-label="Close navigation menu"
+                        >
+                            <CloseLineIcon />
+                        </motion.button>
+
+                        {links.map((link, idx) => (
+                            <motion.div key={link.href}
+                                initial={{ y: 10, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ delay: 0.05 * idx }}
+                            >
+                                <Link href={link.href}
+                                    onClick={() => setOpen(false)}
+                                    className={`hover:text-gray-400 dark:hover:text-gray-600 transition-colors
+                                        ${active(link.href) ? 'text-gray-400 dark:text-gray-600' : ''}`}>
+                                    {link.label}
+                                </Link>
+                            </motion.div>
+                        ))}
+                    </motion.ul>
+                )}
+            </AnimatePresence>
         </nav>
     );
 }

@@ -1,9 +1,10 @@
 import { Analytics } from '@vercel/analytics/next';
 import { Ubuntu } from "next/font/google";
-import "./globals.css";
 import { URL } from "url";
-import Header from "./_components/Header/Header";
 import Footer from "./_components/Footer";
+import Header from "./_components/Header/Header";
+import ClientTransition from "./_components/ClientTransition";
+import "./globals.css";
 
 const ubuntu = Ubuntu({
   variable: "--font-ubuntu",
@@ -51,12 +52,14 @@ export default function RootLayout({ children, params: { lang } }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></meta>
       </head>
 
-      <body className={`${ubuntu.className}
-        bg-[#ccc4be7f] text-gray-800 min-h-screen`}>
+      <body className={`${ubuntu.className} bg-[var(--bg-color)]
+        text-gray-800 min-h-screen antialiased`}>
         <Header />
 
         <main className='max-w-7xl mx-auto px-4 sm:px-6'>
-          {children}
+          <ClientTransition>
+            {children}
+          </ClientTransition>
         </main>
 
         <Footer />

@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import ProjectsList from "../_components/projects/ProjectsList";
-import Spinner from "../_components/Spinner";
+import ProjectsSkeleton from "../_components/Skeletons";
 
 export const revalidate = 0;
 
@@ -17,7 +17,7 @@ async function page() {
                 All Projects
             </h1>
 
-            <Suspense fallback={<Spinner />}>
+            <Suspense fallback={<ProjectsSkeleton />}>
                 <ProjectsList />
             </Suspense>
         </div>
