@@ -4,7 +4,7 @@ import "react-loading-skeleton/dist/skeleton.css"
 export default function Loading() {
   return (
     <section className="py-12 sm:py-16 flex flex-col gap-4">
-      <SkeletonTheme baseColor="#e5e7eb" highlightColor="#f3f4f6">
+      <SkeletonTheme baseColor="#d6cec7" highlightColor="#ebe5df">
         <Skeleton width={250} height={40} />
 
         <div className="relative w-full aspect-video mb-4 overflow-hidden sm:rounded-4xl rounded-2xl">

@@ -11,6 +11,31 @@ export async function generateStaticParams() {
     }));
 }
 
+export async function generateMetadata({ params }) {
+    const { projectId } = await params;
+    try {
+        const project = await getWorkById(projectId);
+        const title = `${project?.name || 'Project'} — Gaber Usef | جابر يوسف`;
+        const description = project?.description?.split('-')?.[0] || 'Project details and tech stack.';
+        const url = `https://gaberuseff.com/projects/${projectId}`;
+        return {
+            title,
+            description,
+            alternates: { canonical: `/projects/${projectId}` },
+            openGraph: {
+                type: 'article',
+                url,
+                title,
+                description,
+                images: [{ url: project?.image || '/me.jpg', width: 1200, height: 630 }]
+            },
+            twitter: { card: 'summary_large_image', title, description, images: [project?.image || '/me.jpg'] }
+        };
+    } catch {
+        return { title: 'Project — Gaber Usef | جابر يوسف', alternates: { canonical: `/projects/${projectId}` } };
+    }
+}
+
 async function Page({ params }) {
     const { projectId } = await params;
     const project = await getWorkById(projectId);

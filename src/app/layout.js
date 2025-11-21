@@ -1,9 +1,9 @@
 import { Analytics } from '@vercel/analytics/next';
 import { Ubuntu } from "next/font/google";
 import { URL } from "url";
+import ClientTransition from "./_components/ClientTransition";
 import Footer from "./_components/Footer";
 import Header from "./_components/Header/Header";
-import ClientTransition from "./_components/ClientTransition";
 import "./globals.css";
 
 const ubuntu = Ubuntu({
@@ -13,21 +13,25 @@ const ubuntu = Ubuntu({
   weight: ["300", "400", "500", "700"], // Load desired font weights
 });
 
-export async function generateMetadata({ params: { lang } }) {
+export async function generateMetadata({ params: { lang } = { lang: 'en' } }) {
   const metadataBase = new URL("https://gaberuseff.com");
+  const siteName = "Gaber Usef"
+  const ogImage = "/me.jpg"
 
   const enMetadata = {
-    title: "Gaber Usef | Front-End Developer",
+    title: {
+      default: "Gaber Usef | Front-End Developer — جابر يوسف | مطور واجهات أمامية",
+      template: "%s — Gaber Usef | جابر يوسف"
+    },
     description:
-      "The professional portfolio of Gaber Usef, a skilled Front-End Developer specializing in creating modern, responsive, and high-performance web applications using React, Next.js, and Tailwind CSS. Explore my projects and get in touch.",
-    keywords: ["Front-End Developer", "React Developer", "Next.js", "Tailwind CSS", "JavaScript", "Web Development", "Portfolio", "UI/UX", "Web Performance"],
+      "Gaber Usef professional portfolio. ملف أعمال جابر يوسف: مطور واجهات أمامية متخصص في بناء تطبيقات ويب حديثة عالية الأداء.",
+    keywords: [
+      "Front-End Developer", "React Developer", "Next.js", "Tailwind CSS", "JavaScript", "Web Development", "Portfolio", "UI/UX", "Web Performance",
+      "مطور واجهات أمامية", "مطور React", "Next.js", "Tailwind CSS", "جافاسكريبت", "تطوير الويب", "ملف أعمال", "تصميم واجهة المستخدم", "أداء الويب"
+    ],
   };
 
-  const arMetadata = {
-    title: "جابر يوسف | مطور واجهات أمامية",
-    description: "ملف الأعمال الاحترافي لـ جابر يوسف، مطور واجهات أمامية متخصص في إنشاء تطبيقات ويب حديثة ومتجاوبة وعالية الأداء باستخدام React و Next.js و Tailwind CSS. استكشف مشاريعي وتواصل معي.",
-    keywords: ["مطور واجهات أمامية", "مطور React", "Next.js", "Tailwind CSS", "Front-End Developer", "JavaScript", "تطوير الويب", "ملف أعمال", "تصميم واجهة المستخدم وتجربة المستخدم", "أداء الويب"],
-  };
+  const arMetadata = enMetadata;
 
   const metadata = lang === 'ar' ? arMetadata : enMetadata;
 
@@ -35,21 +39,58 @@ export async function generateMetadata({ params: { lang } }) {
     ...metadata,
     metadataBase,
     creator: "Gaber Usef",
+    robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+    themeColor: "#ebe5df",
+    openGraph: {
+      type: "website",
+      url: `https://gaberuseff.com/`,
+      title: typeof metadata.title === 'string' ? metadata.title : metadata.title.default,
+      description: metadata.description,
+      siteName,
+      images: [{ url: ogImage, width: 1200, height: 630, alt: siteName }]
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: typeof metadata.title === 'string' ? metadata.title : metadata.title.default,
+      description: metadata.description,
+      images: [ogImage]
+    },
     alternates: {
-      canonical: `/${lang}`,
-      languages: {
-        'en-US': '/en',
-        'ar-EG': '/ar',
-      },
+      canonical: `/`,
     },
   };
 }
 
-export default function RootLayout({ children, params: { lang } }) {
+export default function RootLayout({ children, params: { lang } = { lang: 'en' } }) {
   return (
     <html lang={lang} dir={lang === 'ar' ? 'rtl' : 'ltr'}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></meta>
+        <script type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Person",
+                  "name": "Gaber Usef | جابر يوسف",
+                  "url": "https://gaberuseff.com",
+                  "image": "https://gaberuseff.com/me.jpg",
+                  "jobTitle": "Front-End Developer | مطور واجهات أمامية",
+                  "sameAs": [
+                    "https://github.com/Gaberuseff",
+                    "https://www.linkedin.com/in/gaberuseff/"
+                  ]
+                },
+                {
+                  "@type": "WebSite",
+                  "url": "https://gaberuseff.com",
+                  "name": "Gaber Usef Portfolio | موقع جابر يوسف",
+                  "availableLanguage": ["ar-EG", "en-US"]
+                }
+              ]
+            })
+          }} />
       </head>
 
       <body className={`${ubuntu.className} bg-[var(--bg-color)]

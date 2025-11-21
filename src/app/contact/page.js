@@ -7,6 +7,18 @@ import WhatsappFillIcon from "remixicon-react/WhatsappFillIcon";
 import ButtonLink from "../_components/ButtonLink";
 import { getCv } from "../_services/data-service";
 
+export async function generateMetadata() {
+    const title = "Contact | تواصل — Gaber Usef | جابر يوسف";
+    const description = "Reach out for collaboration or inquiries. تواصل معى للتعاون أو للاستفسارات.";
+    return {
+        title,
+        description,
+        alternates: { canonical: "/contact" },
+        openGraph: { type: 'website', url: 'https://gaberuseff.com/contact', title, description, images: [{ url: '/me.jpg', width: 1200, height: 630 }] },
+        twitter: { card: 'summary_large_image', title, description, images: ['/me.jpg'] }
+    };
+}
+
 async function ContactPage() {
     const socialLinks = [
         { href: "https://github.com/Gaberuseff", label: "GitHub" },

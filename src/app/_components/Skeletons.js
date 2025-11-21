@@ -18,7 +18,7 @@ function WorkCardSkeleton() {
 
 function ProjectsSkeleton() {
   return (
-    <SkeletonTheme baseColor="#14130d" highlightColor="#f3f4f6">
+    <SkeletonTheme baseColor="#d6cec7" highlightColor="#ebe5df">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-4">
         {Array.from({ length: 6 }).map((_, i) => (
           <WorkCardSkeleton key={i} />
@@ -28,5 +28,32 @@ function ProjectsSkeleton() {
   )
 }
 
+function CertCardSkeleton() {
+  return (
+    <div className="overflow-hidden">
+      <div className="relative w-full md:aspect-video aspect-3/2 sm:rounded-4xl rounded-2xl overflow-hidden">
+        <Skeleton height="100%" width="100%" />
+      </div>
+      <div className="p-4 flex items-center justify-between gap-3">
+        <Skeleton width={180} height={20} />
+        <Skeleton width={100} height={40} />
+      </div>
+    </div>
+  )
+}
+
+function CertificatesSkeleton() {
+  return (
+    <SkeletonTheme baseColor="#d6cec7" highlightColor="#ebe5df">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+        {Array.from({ length: 6 }).map((_, i) => (
+          <CertCardSkeleton key={i} />
+        ))}
+      </div>
+    </SkeletonTheme>
+  )
+}
+
 export default ProjectsSkeleton
+export { CertificatesSkeleton }
 export { WorkCardSkeleton }

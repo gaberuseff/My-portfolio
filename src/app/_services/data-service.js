@@ -56,3 +56,16 @@ export async function getCv() {
 
     return data.myCv;
 }
+
+export async function getCertificates() {
+    const { data, error } = await supabase
+        .from('myCertificates')
+        .select('id, title, image, url')
+
+    if (error) {
+        console.error('Error fetching certificates:', error)
+        throw new Error('Failed to fetch certificates')
+    }
+
+    return data;
+}

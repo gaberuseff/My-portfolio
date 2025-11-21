@@ -10,12 +10,11 @@ function ButtonLink({ children, className, href, ...props }) {
                 href={href}
                 {...props}
                 className={`
-                group
                     ${className}
                 `}
             >
                 <span>{children}</span>
-                <ArrowRightLineIcon className="h-5 w-5 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
+                <ArrowRightLineIcon className="h-5 w-5" />
             </Link>
         </motion.div>
     );
