@@ -12,9 +12,9 @@
     "@supabase/supabase-js": "^2.52.1",
     "@vercel/analytics": "^1.5.0",
     "framer-motion": "^12.23.24",
-    "next": "^16.0.3",
-    "react": "^19.2.0-canary-0bdb9206-20250818",
-    "react-dom": "^19.2.0-canary-0bdb9206-20250818",
+    "next": "^16.0.7",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
     "react-loading-skeleton": "^3.5.0",
     "remixicon-react": "^1.0.0"
   },
