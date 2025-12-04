@@ -1,7 +1,7 @@
 "use client";
 
 import NextLink from "next/link";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const Link = ({ children, className, href, ...rest }) => {
     const [prefetching, setPrefetching] = useState(false);
