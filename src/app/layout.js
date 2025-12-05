@@ -1,11 +1,10 @@
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Ubuntu } from "next/font/google";
 import { URL } from "url";
-import ClientTransition from "./_components/ClientTransition";
 import Footer from "./_components/Footer";
 import Header from "./_components/Header/Header";
 import "./globals.css";
-import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const ubuntu = Ubuntu({
   variable: "--font-ubuntu",
@@ -92,6 +91,14 @@ export default function RootLayout({ children, params: { lang } = { lang: 'en' }
               ]
             })
           }} />
+
+        <script type="text/javascript">
+          {`(function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+          })(window, document, "clarity", "script", "ugwseh3cnz");`}
+        </script>
       </head>
 
       <body className={`${ubuntu.className} bg-[var(--bg-color)]
