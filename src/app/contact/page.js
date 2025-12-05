@@ -1,8 +1,8 @@
 import ArrowRightUpLineIcon from "remixicon-react/ArrowRightUpLineIcon";
-import GithubFillIcon from "remixicon-react/GithubFillIcon";
-import LinkedinFillIcon from "remixicon-react/LinkedinFillIcon";
 import FacebookFillIcon from "remixicon-react/FacebookFillIcon";
+import GithubFillIcon from "remixicon-react/GithubFillIcon";
 import InstagramLineIcon from "remixicon-react/InstagramLineIcon";
+import LinkedinFillIcon from "remixicon-react/LinkedinFillIcon";
 import WhatsappFillIcon from "remixicon-react/WhatsappFillIcon";
 import ButtonLink from "../_components/ButtonLink";
 import { getCv } from "../_services/data-service";
@@ -25,7 +25,7 @@ async function ContactPage() {
         { href: "https://www.linkedin.com/in/gaberuseff/", label: "LinkedIn" },
         { href: "https://www.facebook.com/gaberuseff/", label: "Facebook" },
         { href: "https://www.instagram.com/gaberuseff/", label: "Instagram" },
-        { href: "https://wa.me/+201098922786", label: "WhatsApp" },
+        { href: "https://wa.me/+201500223440", label: "WhatsApp" },
     ];
 
     const cvLink = await getCv();

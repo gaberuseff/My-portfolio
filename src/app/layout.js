@@ -5,6 +5,7 @@ import ClientTransition from "./_components/ClientTransition";
 import Footer from "./_components/Footer";
 import Header from "./_components/Header/Header";
 import "./globals.css";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const ubuntu = Ubuntu({
   variable: "--font-ubuntu",
@@ -95,12 +96,11 @@ export default function RootLayout({ children, params: { lang } = { lang: 'en' }
 
       <body className={`${ubuntu.className} bg-[var(--bg-color)]
         text-gray-800 min-h-screen antialiased`}>
+        <SpeedInsights />
         <Header />
 
         <main className='max-w-7xl mx-auto px-4 sm:px-6'>
-          <ClientTransition>
-            {children}
-          </ClientTransition>
+          {children}
         </main>
 
         <Footer />

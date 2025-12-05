@@ -3,6 +3,7 @@ import HowIam from "./_components/Home/HowIam"
 import TechStack from "./_components/Home/TechStack"
 import WhyMe from "./_components/Home/WhyMe"
 import Works from "./_components/Works/Works"
+import ClientTransition from "./_components/ClientTransition"
 
 export async function generateMetadata() {
   const title = "Portfolio | الملف الشخصى — Gaber Usef | جابر يوسف"
@@ -18,17 +19,19 @@ export async function generateMetadata() {
 
 function page() {
   return (
-    <div className="flex flex-col">
-      <Hero />
+    <ClientTransition>
+      <div className="flex flex-col">
+        <Hero />
 
-      <HowIam />
+        <HowIam />
 
-      <TechStack />
+        <TechStack />
 
-      <Works />
+        <Works />
 
-      <WhyMe />
-    </div>
+        <WhyMe />
+      </div>
+    </ClientTransition>
   )
 }
 

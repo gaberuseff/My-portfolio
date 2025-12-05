@@ -1,9 +1,9 @@
 "use client"
+import { motion } from "framer-motion"
 import Image from "next/image"
 import ButtonLink from "../ButtonLink"
 import Features from "./Features"
 import HeroText from "./HeroText"
-import { motion } from "framer-motion"
 
 function Hero() {
     return (
@@ -14,10 +14,10 @@ function Hero() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.2 }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="relative w-full aspect-square md:h-full md:aspect-auto order-1 md:order-2 overflow-hidden rounded-[5%]"
+                    className="relative w-full aspect-square md:h-full md:aspect-auto order-1 md:order-2 overflow-hidden rounded-4xl"
                 >
                     <Image
-                        src="/me.jpg"
+                        src="/me2.webp"
                         alt="Gaber Usef"
                         fill
                         priority
