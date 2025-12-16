@@ -1,10 +1,11 @@
 'use client';
 
 import Link from "@/app/_components/Link";
-import MenuLineIcon from "remixicon-react/MenuLineIcon";
-import CloseLineIcon from "remixicon-react/CloseLineIcon";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import CloseLineIcon from "remixicon-react/CloseLineIcon";
+import MenuLineIcon from "remixicon-react/MenuLineIcon";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navigation() {
     const [open, setOpen] = useState(false);
@@ -17,6 +18,48 @@ export default function Navigation() {
         { href: "/certificates", label: "Certificates" },
         { href: "/contact", label: "Contact" },
     ];
+
+    const menuVariants = {
+        hidden: {
+            x: "100%",
+            opacity: 0,
+        },
+        visible: {
+            x: 0,
+            opacity: 1,
+            transition: {
+                type: "spring",
+                stiffness: 100,
+                damping: 20,
+                staggerChildren: 0.1,
+                delayChildren: 0.2,
+            }
+        },
+        exit: {
+            x: "100%",
+            opacity: 0,
+            transition: {
+                type: "spring",
+                stiffness: 100,
+                damping: 20,
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: {
+            opacity: 0,
+            y: 20,
+        },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                type: "spring",
+                stiffness: 100,
+            }
+        }
+    };
 
     return (
         <nav className="z-10 text-xl">
@@ -38,28 +81,42 @@ export default function Navigation() {
                 ))}
             </ul>
 
-            {open && (
-                <ul className="fixed inset-0 z-50 flex flex-col justify-center h-screen items-center text-xl gap-8 bg-gray-100 text-gray-800 p-8 md:hidden">
-                    <button
-                        className="absolute top-6 right-4"
-                        onClick={() => setOpen(false)}
-                        aria-label="Close navigation menu"
+            <AnimatePresence>
+                {open && (
+                    <motion.ul
+                        variants={menuVariants}
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                        className="fixed inset-0 z-50 flex flex-col justify-center h-screen items-center text-xl gap-8 bg-gray-100 text-gray-800 p-8 md:hidden"
                     >
-                        <CloseLineIcon />
-                    </button>
+                        <motion.button
+                            initial={{ opacity: 0, rotate: -90 }}
+                            animate={{ opacity: 1, rotate: 0 }}
+                            transition={{ delay: 0.3 }}
+                            className="absolute top-6 right-4"
+                            onClick={() => setOpen(false)}
+                            aria-label="Close navigation menu"
+                        >
+                            <CloseLineIcon />
+                        </motion.button>
 
-                    {links.map((link) => (
-                        <div key={link.href}>
-                            <Link href={link.href}
-                                onClick={() => setOpen(false)}
-                                className={`hover:text-gray-400 dark:hover:text-gray-600 transition-colors
-                                    ${active(link.href) ? 'text-gray-400 dark:text-gray-600' : ''}`}>
-                                {link.label}
-                            </Link>
-                        </div>
-                    ))}
-                </ul>
-            )}
+                        {links.map((link) => (
+                            <motion.div
+                                key={link.href}
+                                variants={itemVariants}
+                            >
+                                <Link href={link.href}
+                                    onClick={() => setOpen(false)}
+                                    className={`hover:text-gray-400 dark:hover:text-gray-600 transition-colors
+                                        ${active(link.href) ? 'text-gray-400 dark:text-gray-600' : ''}`}>
+                                    {link.label}
+                                </Link>
+                            </motion.div>
+                        ))}
+                    </motion.ul>
+                )}
+            </AnimatePresence>
         </nav>
     );
 }

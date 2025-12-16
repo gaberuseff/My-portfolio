@@ -24,11 +24,29 @@ export async function generateMetadata({ params: { lang } = { lang: 'en' } }) {
       template: "%s — Gaber Usef | جابر يوسف"
     },
     description:
-      "Gaber Usef professional portfolio. ملف أعمال جابر يوسف: مطور واجهات أمامية متخصص في بناء تطبيقات ويب حديثة عالية الأداء.",
+      "Gaber Usef (جابر يوسف) - Professional Front-End Developer specializing in React, Next.js, and modern web applications. مطور واجهات أمامية محترف متخصص في React و Next.js وتطبيقات الويب الحديثة.",
     keywords: [
-      "Front-End Developer", "React Developer", "Next.js", "Tailwind CSS", "JavaScript", "Web Development", "Portfolio", "UI/UX", "Web Performance",
-      "مطور واجهات أمامية", "مطور React", "Next.js", "Tailwind CSS", "جافاسكريبت", "تطوير الويب", "ملف أعمال", "تصميم واجهة المستخدم", "أداء الويب"
+      // Name variations
+      "Gaber Usef", "Gaber Youssef", "Gaber Yousef", "جابر يوسف", "جابر يوسف مطور", "Gaberuseff",
+      // Job titles - English
+      "Front-End Developer", "Frontend Developer", "React Developer", "Next.js Developer", "Web Developer",
+      "JavaScript Developer", "UI Developer", "Full Stack Developer",
+      // Job titles - Arabic
+      "مطور واجهات أمامية", "مطور فرونت اند", "مطور React", "مطور Next.js", "مطور ويب",
+      "مطور جافاسكريبت", "مطور واجهات مستخدم", "مطور مصري",
+      // Technologies
+      "React", "Next.js", "Tailwind CSS", "JavaScript", "HTML", "CSS",
+      "Supabase", "Vercel", "Git", "GitHub",
+      // Skills & Services
+      "Web Development", "Responsive Design", "Web Performance", "SEO Optimization",
+      "Portfolio Website", "Modern Web Apps", "Single Page Applications", "Progressive Web Apps",
+      "تطوير الويب", "تصميم متجاوب", "أداء الويب", "تحسين محركات البحث",
+      // Location
+      "Egypt Developer", "Egyptian Developer", "Front-End Developer Egypt", "مطور مصري", "مطور في مصر",
+      // Portfolio related
+      "Portfolio", "Projects", "Web Portfolio", "Developer Portfolio", "ملف أعمال", "معرض أعمال"
     ],
+    author: "Gaber Usef | جابر يوسف",
   };
 
   const arMetadata = enMetadata;
@@ -73,10 +91,29 @@ export default function RootLayout({ children, params: { lang } = { lang: 'en' }
               "@graph": [
                 {
                   "@type": "Person",
-                  "name": "Gaber Usef | جابر يوسف",
+                  "name": "Gaber Usef",
+                  "alternateName": [
+                    "جابر يوسف",
+                    "Gaber Youssef",
+                    "Gaber Yousef",
+                    "Gaberuseff"
+                  ],
                   "url": "https://gaberuseff.com",
                   "image": "https://gaberuseff.com/me.jpg",
-                  "jobTitle": "Front-End Developer | مطور واجهات أمامية",
+                  "jobTitle": "Front-End Developer",
+                  "description": "Professional Front-End Developer specializing in React, Next.js, and modern web applications. مطور واجهات أمامية محترف متخصص في React و Next.js",
+                  "knowsAbout": [
+                    "React",
+                    "Next.js",
+                    "JavaScript",
+                    "TypeScript",
+                    "Tailwind CSS",
+                    "Web Development",
+                    "UI/UX Design",
+                    "Responsive Design",
+                    "Web Performance"
+                  ],
+                  "nationality": "Egyptian",
                   "sameAs": [
                     "https://github.com/Gaberuseff",
                     "https://www.linkedin.com/in/gaberuseff/"
@@ -85,8 +122,28 @@ export default function RootLayout({ children, params: { lang } = { lang: 'en' }
                 {
                   "@type": "WebSite",
                   "url": "https://gaberuseff.com",
-                  "name": "Gaber Usef Portfolio | موقع جابر يوسف",
-                  "availableLanguage": ["ar-EG", "en-US"]
+                  "name": "Gaber Usef Portfolio",
+                  "alternateName": "موقع جابر يوسف",
+                  "description": "Professional portfolio of Gaber Usef (جابر يوسف), Front-End Developer",
+                  "inLanguage": ["en", "ar"],
+                  "availableLanguage": ["ar-EG", "en-US"],
+                  "author": {
+                    "@type": "Person",
+                    "name": "Gaber Usef"
+                  }
+                },
+                {
+                  "@type": "ProfessionalService",
+                  "name": "Gaber Usef - Front-End Development Services",
+                  "alternateName": "جابر يوسف - خدمات تطوير الواجهات الأمامية",
+                  "url": "https://gaberuseff.com",
+                  "description": "Professional front-end development services including React, Next.js, and modern web application development",
+                  "provider": {
+                    "@type": "Person",
+                    "name": "Gaber Usef"
+                  },
+                  "areaServed": "Worldwide",
+                  "serviceType": "Web Development"
                 }
               ]
             })

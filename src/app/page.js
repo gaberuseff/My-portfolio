@@ -6,11 +6,12 @@ import Works from "./_components/Works/Works"
 import ClientTransition from "./_components/ClientTransition"
 
 export async function generateMetadata() {
-  const title = "Portfolio | الملف الشخصى — Gaber Usef | جابر يوسف"
-  const description = "Front-End Developer portfolio showcasing projects and skills. ملف شخصى يعرض الأعمال والمهارات."
+  const title = "Gaber Usef | جابر يوسف"
+  const description = "Gaber Usef (جابر يوسف) - Professional Front-End Developer portfolio showcasing modern web projects built with React, Next.js, and Tailwind CSS. مطور واجهات أمامية محترف - ملف أعمال يعرض مشاريع ويب حديثة."
   return {
     title,
     description,
+    keywords: ["Gaber Usef", "جابر يوسف", "Front-End Developer", "React Portfolio", "Next.js Projects", "مطور واجهات أمامية", "ملف أعمال"],
     alternates: { canonical: "/" },
     openGraph: { type: "website", url: "https://gaberuseff.com/", title, description, images: [{ url: "/me.jpg", width: 1200, height: 630 }] },
     twitter: { card: "summary_large_image", title, description, images: ["/me.jpg"] }
