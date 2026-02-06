@@ -1,7 +1,6 @@
 import { getSomeWorks } from "@/app/_services/data-service"
-import Work from "../Works/Work"
-import Link from "../Link"
 import ButtonLink from "../ButtonLink"
+import Work from "../Works/Work"
 
 async function Works() {
     const works = await getSomeWorks()
@@ -23,7 +22,6 @@ async function Works() {
                     ))
                 }
             </div>
-
 
             <div className="sm:mt-6 mt-3 flex justify-center">
                 <ButtonLink href="/projects" className="btn-primary">View All</ButtonLink>

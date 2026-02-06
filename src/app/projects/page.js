@@ -1,6 +1,6 @@
 import ProjectsList from "../_components/projects/ProjectsList";
 
-export const revalidate = 0;
+export const revalidate = 3600;
 
 export async function generateMetadata() {
     const title = "Projects | المشاريع — Gaber Usef | جابر يوسف"

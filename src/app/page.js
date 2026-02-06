@@ -1,9 +1,11 @@
+import ClientTransition from "./_components/ClientTransition"
 import Hero from "./_components/Home/Hero"
 import HowIam from "./_components/Home/HowIam"
 import TechStack from "./_components/Home/TechStack"
 import WhyMe from "./_components/Home/WhyMe"
 import Works from "./_components/Works/Works"
-import ClientTransition from "./_components/ClientTransition"
+
+export const revalidate = 3600
 
 export async function generateMetadata() {
   const title = "Gaber Usef | جابر يوسف"

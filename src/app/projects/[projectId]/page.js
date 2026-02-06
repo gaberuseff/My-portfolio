@@ -1,8 +1,8 @@
-import ButtonLink from "@/app/_components/ButtonLink";
-import { getWorkById, getWorks } from "@/app/_services/data-service";
 import BulletIcon from "@/app/_components/BulletIcon";
-import Image from "next/image";
+import ButtonLink from "@/app/_components/ButtonLink";
 import TechStack from "@/app/_components/Works/TechStack";
+import { getWorkById, getWorks } from "@/app/_services/data-service";
+import Image from "next/image";
 
 export async function generateStaticParams() {
     const works = await getWorks();
