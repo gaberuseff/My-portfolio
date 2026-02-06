@@ -19,6 +19,8 @@ export async function generateMetadata() {
     };
 }
 
+export const revalidate = 3600
+
 async function ContactPage() {
     const socialLinks = [
         { href: "https://github.com/Gaberuseff", label: "GitHub" },

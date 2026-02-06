@@ -1,10 +1,10 @@
 import CertificatesList from "../_components/certificates/CertificatesList";
 
-export const revalidate = 0;
+export const revalidate = 3600
 
 export async function generateMetadata() {
   const title = "Certificates | الشهادات — Gaber Usef | جابر يوسف"
-  const description = "Professional certificates and achievements. شهادات وإنجازات مهنية." 
+  const description = "Professional certificates and achievements. شهادات وإنجازات مهنية."
   const path = `/certificates`
   return {
     title,
