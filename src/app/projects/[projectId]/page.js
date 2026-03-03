@@ -44,28 +44,17 @@ async function Page({ params }) {
 
     const {
         name = "",
-        description = "",
+        description = [],
         image,
         liveLink,
         repoLink,
         techStack = [],
     } = project;
 
-    const descriptionPoints =
-        typeof description === "string"
-            ? description
-                .split("-")
-                .map((point) => point.trim())
-                .filter(Boolean)
-            : [];
-
     return (
         <section className="py-12 sm:py-16" aria-labelledby="project-title">
             <div className="flex flex-col gap-2 mb-6">
                 <h2 id="project-title" className="mb-1">{name}</h2>
-                {descriptionPoints[0] && (
-                    <p className="p-small text-gray-600">{descriptionPoints[0]}</p>
-                )}
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -87,7 +76,7 @@ async function Page({ params }) {
                 <div className="lg:col-span-5">
                     <div className="bg-gray-100/70 sm:rounded-4xl rounded-2xl p-6 ring-1 ring-gray-300/60">
                         <ul className="space-y-4">
-                            {descriptionPoints.map((point, index) => (
+                            {description.map((point, index) => (
                                 <li key={index} className="flex items-start gap-3">
                                     <BulletIcon variant="dot" />
                                     <span className="text-gray-700 sm:text-base text-sm leading-relaxed">{point.trim()}</span>

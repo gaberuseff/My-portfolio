@@ -9,11 +9,13 @@ export async function generateMetadata() {
         title,
         description,
         alternates: { canonical: "/projects" },
-        openGraph: { type: 'website', url: 'https://gaberuseff.com/projects', title, description, images: [{ url: '/me.jpg', width: 1200, height: 630 }] },
+        openGraph: {
+            type: 'website', url: 'https://gaberuseff.com/projects',
+            title, description, images: [{ url: '/me.jpg', width: 1200, height: 630 }]
+        },
         twitter: { card: 'summary_large_image', title, description, images: ['/me.jpg'] }
     }
 }
-
 
 async function page() {
     return (
